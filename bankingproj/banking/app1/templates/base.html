@@ -1,0 +1,152 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <title>Banker &mdash; Website Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/jquery.fancybox.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+  .nav-button {
+    background-color:#FFA500; /* orange color for the button */
+    color: #fff; /* White text color */
+    padding: 10px 20px; /* Add some padding for a better appearance */
+    border: none; /* Remove default button border */
+    cursor: pointer; /* Show a pointer cursor when hovering over the button */
+    border-radius: 4px; /* Add rounded corners */
+  }
+
+  .nav-button:hover {
+    background-color: #C0C0C0; /* color on hover */
+  }
+ .custom-header {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      background-color: #333;
+      /* Add more custom styles as needed */
+    }
+
+    .custom-header a {
+      line-height: 40px; /* Vertically center the links in the header */
+      /* Add more custom styles as needed */
+    }
+
+
+    </style>
+
+
+</head>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+<div class="container">
+        {% include 'navbar.html' %}
+</div>
+<div class="container">
+            {% block content %}
+            {% endblock %}
+    </div>
+<div class="container">
+<footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <h2 class="footer-heading mb-4">About Us</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque facere laudantium magnam
+                                voluptatum autem. Amet aliquid nesciunt veritatis aliquam.</p>
+                        </div>
+                        <div class="col-md-3 ml-auto">
+                            <h2 class="footer-heading mb-4">Quick Links</h2>
+                            <ul class="list-unstyled">
+                                <li><a href="#about-section" class="smoothscroll">Terms</a></li>
+                                <li><a href="#about-section" class="smoothscroll">Policy</a></li>
+                                <li><a href="#about-section" class="smoothscroll">About Us</a></li>
+                                <li><a href="#services-section" class="smoothscroll">Services</a></li>
+                                <li><a href="#testimonials-section" class="smoothscroll">Testimonials</a></li>
+                                <li><a href="#contact-section" class="smoothscroll">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 footer-social">
+                            <h2 class="footer-heading mb-4">Follow Us</h2>
+                            <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                            <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                            <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                            <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
+                    <form action="#" method="post" class="footer-subscribe">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control border-secondary text-white bg-transparent"
+                                   placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary text-black" type="button" id="button-addon2">Send
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row pt-5 mt-5 text-center">
+                <div class="col-md-12">
+                    <div class="border-top pt-5">
+                        <p class="copyright"><small>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                            All rights reserved | This template is made with <i class="icon-heart text-danger"
+                                                                                aria-hidden="true"></i> by <a
+                                href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </small>
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    </div>
+
+</div> <!-- .site-wrap -->
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/jquery-ui.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+<script src="{% static 'js/aos.js' %}"></script>
+<script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+<script src="{% static 'js/jquery.sticky.js' %}"></script>
+<script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+
+
+<script src="{% static 'js/main.js' %}"></script>
+
+
+</body>
+</html>

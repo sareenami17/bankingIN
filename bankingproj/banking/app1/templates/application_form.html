@@ -1,0 +1,145 @@
+<!-- account_form.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Account Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        #branch {
+            pointer-events: none;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>Account Form</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" name="name" required>
+
+        <label for="dob">DOB:</label>
+        <input type="date" name="dob" required>
+
+        <label for="age">Age:</label>
+        <input type="number" name="age" required>
+
+        <label for="gender">Gender:</label>
+        <select name="gender" required>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+            <option value="O">Other</option>
+        </select>
+
+        <label for="phone_number">Phone Number:</label>
+        <input type="text" name="phone_number" required>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" required>
+
+        <label for="address">Address:</label>
+        <textarea name="address" rows="4" required></textarea>
+
+        <label for="district">District:</label>
+        <select name="district" id="district" required>
+            <option value="">Select a District</option>
+            {% for district in districts %}
+            <option value="{{ district.id }}">{{ district.name }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="branch">Branch:</label>
+        <select name="branch" id="branch" required>
+            <option value="">Select a District First</option>
+        </select>
+
+        <h2>Materials Provide:</h2>
+        {% for material in materials %}
+        <label>
+            <input type="checkbox" name="materials_provide" value="{{ material.id }}"> {{ material.name }}
+        </label><br>
+        {% endfor %}
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        $(document).ready(function () {
+            $('#district').change(function () {
+                var districtId = $(this).val();
+                $('#branch').prop('disabled', !districtId);
+                $('#branch').val('');
+                if (districtId) {
+                    $.ajax({
+                        url: '/get_branches/' + districtId + '/',
+                        type: 'get',
+                        dataType: 'json',
+                        success: function (data) {
+                            var branchDropdown = $('#branch');
+                            branchDropdown.empty();
+                            branchDropdown.append('<option value="">Select a Branch</option>');
+                            for (var i = 0; i < data.length; i++) {
+                                branchDropdown.append('<option value="' + data[i].id + '">' + data[i].name + '</option>');
+                            }
+                            $('#branch').prop('disabled', false);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
